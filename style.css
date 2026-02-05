@@ -1193,3 +1193,32 @@ display: flex;
     }
 }
 
+/* --- レスポンシブ対応 (SP: 768px以下) --- */
+@media (max-width: 768px) {
+    /* ...existing code... */
+
+    html, body {
+        /* スクロールを妨げるoverflow-x: hiddenを解除 */
+        overflow-x: unset !important;
+        overflow-y: auto !important;
+        /* スクロールの妨げになる高さ指定をリセット */
+        height: auto !important;
+    }
+
+    body {
+        /* まれにbodyの高さが固定されているとスクロールできなくなるため */
+        min-height: 100vh;
+    }
+
+    /* スクロールを妨げる要素のoverflowを解除 */
+    .main-visual,
+    .hero-concept,
+    .dashboard,
+    .activity-section,
+    .content-nav,
+    .site-footer {
+        overflow-x: unset !important;
+        overflow-y: unset !important;
+    }
+}
+
