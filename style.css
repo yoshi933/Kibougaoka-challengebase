@@ -1,20 +1,10 @@
 /* style.css の一番上（bodyタグ付近）に追加・修正 */
 
-html {
+html, body {
     width: 100%;
+    overflow-x: hidden; /* ★重要：画面からはみ出た要素を強制的に隠す */
     margin: 0;
     padding: 0;
-}
-body {
-    width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}
-
-body, main {
-    min-height: 100vh;
 }
 
 /* すべての画像とiframe（地図など）が親要素より大きくならないようにする */
@@ -938,6 +928,16 @@ display: flex;
         --site-width: 100%; /* SPでは100% */
     }
 
+    html, body {
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        min-height: 100vh;
+    }
+
+    body {
+        min-height: 100vh;
+    }
+
     .header-container {
         padding: 0 20px;
     }
@@ -1202,35 +1202,4 @@ display: flex;
         display: block !important;
     }
 }
-
-/* --- レスポンシブ対応 (SP: 768px以下) --- */
-@media (max-width: 768px) {
-    /* ...existing code... */
-
-    html, body {
-        /* スクロールを妨げるoverflow-x: hiddenを解除 */
-        overflow-x: unset !important;
-        overflow-y: auto !important;
-        /* スクロールの妨げになる高さ指定をリセット */
-        height: auto !important;
-    }
-
-    body {
-        /* まれにbodyの高さが固定されているとスクロールできなくなるため */
-        min-height: 100vh;
-    }
-
-    /* スクロールを妨げる要素のoverflowを解除 */
-    .main-visual,
-    .hero-concept,
-    .dashboard,
-    .activity-section,
-    .content-nav,
-    .site-footer {
-        overflow-x: unset !important;
-        overflow-y: unset !important;
-    }
-}
-
-
 
