@@ -1,10 +1,16 @@
 /* style.css の一番上（bodyタグ付近）に追加・修正 */
 
-html, body {
+html {
     width: 100%;
-    overflow-x: hidden; /* ★重要：画面からはみ出た要素を強制的に隠す */
     margin: 0;
     padding: 0;
+}
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 /* すべての画像とiframe（地図など）が親要素より大きくならないようにする */
@@ -1221,4 +1227,5 @@ display: flex;
         overflow-y: unset !important;
     }
 }
+
 
