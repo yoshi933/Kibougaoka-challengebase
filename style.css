@@ -13,6 +13,10 @@ body {
     min-height: 100vh;
 }
 
+body, main {
+    min-height: 100vh;
+}
+
 /* すべての画像とiframe（地図など）が親要素より大きくならないようにする */
 img, iframe {
     max-width: 100%;
@@ -1227,5 +1231,6 @@ display: flex;
         overflow-y: unset !important;
     }
 }
+
 
 
