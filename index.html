@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>希望が丘チャレンジベース</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/icon/haikeisiro.ico" rel="icon">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="/assets/icon/thumbnail_IMG_1939.png" alt="希望が丘チャレンジベース ロゴ">
+                <span>希望が丘<br>チャレンジベース</span>
+            </div>
+            <nav class="global-nav">
+                <ul>
+                    <li class="nav-item has-dropdown">
+                        <a href="#">イベント情報</a>
+                        <div class="dropdown-menu">
+                            <a href="#">今月のイベント</a>
+                            <a href="#">過去のイベント</a>
+                            <a href="#">イベントカレンダー</a>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#">施設案内</a>
+                        <div class="dropdown-menu">
+                            <a href="#">施設概要</a>
+                            <a href="#">利用方法</a>
+                            <a href="#">アクセス</a>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#">チャレベについて</a>
+                        <div class="dropdown-menu">
+                            <a href="#">コンセプト</a>
+                            <a href="#">活動記録</a>
+                            <a href="#">運営体制</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">お問い合わせ</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="通知">
+                    <!-- 通知アイコンSVG -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn menu-toggle" aria-label="メニュー" id="menu-toggle">
+                    <!-- ハンバーガーアイコンSVG -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu" class="mobile-menu">
+            <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">イベント情報</a></li>
+                <li><a href="#">施設案内</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main-visual">
+            <div class="mv-container">
+                <div class="mv-nav">
+                    <button class="mv-nav-item active" data-index="0">
+                        <div class="nav-icon">📅</div>
+                        <div class="nav-text">○月のイベント情報</div>
+                    </button>
+                    <button class="mv-nav-item" data-index="1">
+                        <div class="nav-icon">📚</div>
+                        <div class="nav-text">新本入荷！</div>
+                    </button>
+                    <button class="mv-nav-item" data-index="2">
+                        <div class="nav-icon">☕</div>
+                        <div class="nav-text">新メニュー発売！</div>
+                    </button>
+                </div>
+
+                <div class="mv-slider">
+                    <div class="slide active">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop" alt="イベント情報">
+                        <div class="slide-content">
+                            <h2>NEW<br>コミュニティイベント</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1524578271613-d550eacf6090?q=80&w=2070&auto=format&fit=crop" alt="新本入荷">
+                        <div class="slide-content">
+                            <h2>NEW<br>話題の書籍入荷</h2>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=2000&auto=format&fit=crop" alt="ラテアート">
+                        <div class="slide-content">
+                            <h2>NEW<br>○○ラテ</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-bar">
+            <div class="info-container">
+                <span class="info-badge">お知らせ</span>
+                <a href="#" class="info-text">2026.01.01 ○月のカレンダーを更新しました。</a>
+            </div>
+        </section>
+
+        <section class="hero-concept reveal">
+            <div class="concept-container">
+                <div class="concept-text">
+                    <h1>みんなの<br>「チャレンジ」が育つ<br>まちの拠点</h1><br>
+                    <p class="concept-desc">
+                        希望が丘チャレンジベースは<br>成長できる場所。<br><br>
+                        未完成だからこそ、<br>育て続けることに意味がある。
+                    </p>
+                    <div class="concept-btn-area">
+                        <button class="outline-btn">詳しく見る</button>
+                    </div>
+                </div>
+                <div class="concept-image">
+                    <img src="assets/images/518719926_1643332413294109_7522030960908095940_n.jpg" alt="みんなの集合写真">
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard reveal">
+            <div class="dashboard-container">
+                <div class="card news-card">
+                    <div class="card-header">
+                        <h3>お知らせ・記事</h3>
+                        <a href="#" class="link-text">すべてのお知らせ</a>
+                    </div>
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <div class="news-meta">
+                                <span class="date">2026.01.01</span>
+                                <span class="tag tag-cafe">カフェ</span>
+                                <span class="badge-new">NEW</span>
+                            </div>
+                            <div class="news-main">
+                                <a href="#" class="title">サンプルサンプルサンプル</a>
+                                <button class="heart-btn" aria-label="お気に入り登録">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="news-meta">
+                                <span class="date">2026.01.01</span>
+                                <span class="tag tag-book">本</span>
+                                <span class="badge-new">NEW</span>
+                            </div>
+                            <div class="news-main">
+                                <a href="#" class="title">サンプルサンプルサンプル</a>
+                                <button class="heart-btn" aria-label="お気に入り登録">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="news-meta">
+                                <span class="date">2026.01.01</span>
+                                <span class="tag tag-survey">アンケート</span>
+                            </div>
+                            <div class="news-main">
+                                <a href="#" class="title">サンプルサンプルサンプル</a>
+                                <button class="heart-btn" aria-label="お気に入り登録">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card schedule-card">
+                    <div class="card-header">
+                        <h3>スケジュール</h3>
+                        <a href="#" class="link-text">すべての予定</a>
+                    </div>
+                    <div class="schedule-status">
+                        <div class="today-date">2026/01/01</div>
+                        <div class="status-badge open">OPEN</div>
+                    </div>
+                    <div class="daily-events">
+                        <h4>今日のイベント</h4>
+                        <ul class="event-list">
+                            <li class="event-item color-1">本読み聞かせ会</li>
+                            <li class="event-item color-2">勉強スペース開放</li>
+                            <li class="event-item color-3">カフェ相談会</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="activity-section reveal">
+            <div class="activity-container">
+                <div class="activity-header">
+                    <h1>-目指すこと-</h1>
+                    <p class="activity-subtitle">持続可能な共創のまちづくり</p>
+                </div>
+                <div style="position:relative;">
+                    <button class="activity-scroll-btn left" aria-label="左へ" style="display:none;">
+                        &#8592;
+                    </button>
+                    <div class="activity-grid">
+                        <a href="#" class="activity-card">
+                            <div class="activity-card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=60')"></div>
+                            <div class="activity-card-content">
+                                <h3>やってみたいを、形にできる拠点</h3>
+                                <p>学生・地域・企業、それぞれが持つ「やってみたい」という想いを受け止め、具体的な行動へとつなげる拠点。</p>
+                            </div>
+                        </a>
+                        <a href="#" class="activity-card">
+                            <div class="activity-card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=60')"></div>
+                            <div class="activity-card-content">
+                                <h3>学生・地域・企業が混ざる共創の場</h3>
+                                <p>学生、地域住民、企業、NPOが立場を越えて関わり合い、教える/教わる関係を超えて価値を共につくる場。</p>
+                            </div>
+                        </a>
+                        <a href="#" class="activity-card">
+                            <div class="activity-card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=60')"></div>
+                            <div class="activity-card-content">
+                                <h3>まちのコンシェルジュ機能</h3>
+                                <p>人と人、想いと課題をつなぐハブとなる役割を担います。拠点の中で生まれたアイデアを地域へひろき、外からの関わりも受け入れます。</p>
+                            </div>
+                        </a>
+                        <a href="#" class="activity-card">
+                            <div class="activity-card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=60')"></div>
+                            <div class="activity-card-content">
+                                <h3>続けられる仕組みと運営体制</h3>
+                                <p>人が入れ替わっても想いが途切れないよう、運営と仕組みを重視。チャレンジを引き継ぎ、広く、育て続けるためのルールと役割の担い手を整え、持続可能な運営を目指します。</p>
+                            </div>
+                        </a>
+                    </div>
+                    <button class="activity-scroll-btn right" aria-label="右へ" style="display:none;">
+                        &#8594;
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-nav reveal">
+            <div class="section-divider">
+                <h1>｜</h1>
+                <h1>チャレベをもっと知る</h1>
+            </div>
+            <div class="content-cards-container" id="random-content-area">
+                </div>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="#" class="link-text">もっと見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer reveal">
+        <div class="footer-wrapper">
+            <div class="footer-map">
+                <h3>アクセス</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6590.795317597459!2d139.51438751611727!3d35.45407177524326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018573cfbe2d6ad%3A0xd93553b532d6c387!2z5biM5pyb44GM5LiY44OB44Oj44Os44Oz44K444OZ44O844K5!5e0!3m2!1sja!2sjp!4v1770108838400!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-cta">
+                <h3>最新情報をチェック！</h3>
+                <div class="social-icons">
+                    <a href="https://lin.ee/b0WkG7m" class="social-link line" aria-label="LINE">
+                        <img src="assets/icon/LINE_Brand_icon.png" alt="LINEアイコン" width="60" height="60">
+                    </a>
+                    <a href="https://www.instagram.com/kibochalle/" class="social-link instagram" aria-label="Instagram" target="_blank" rel="noopener">
+                        <img src="assets/icon/Instagram_Glyph_Gradient.svg" alt="Instagramアイコン" width="60" height="60">
+                    </a>
+                    <a href="https://www.facebook.com/people/%E5%B8%8C%E6%9C%9B%E3%81%8C%E4%B8%98%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%99%E3%83%BC%E3%82%B9/61578364289882/" class="social-link facebook" aria-label="Facebook" target="_blank" rel="noopener">
+                        <img src="assets/icon/Facebook_Logo_Primary.png" alt="Facebookアイコン" width="60" height="60">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <div class="sitemap">
+                <h4>サイトマップ</h4>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="#">チャレベについて</a></li>
+                    <li><a href="#">イベント</a></li>
+                    <li><a href="#">アクセス</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; 2026 希望が丘チャレンジベース
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // 横スクロール矢印ボタン制御
+    (function() {
+        function updateScrollBtns(grid, leftBtn, rightBtn) {
+            if (!grid || !leftBtn || !rightBtn) return;
+            const scrollLeft = grid.scrollLeft;
+            const maxScroll = grid.scrollWidth - grid.clientWidth;
+            leftBtn.style.display = scrollLeft > 10 ? 'flex' : 'none';
+            rightBtn.style.display = (scrollLeft < maxScroll - 10) ? 'flex' : 'none';
+        }
+        function setupActivityScroll() {
+            const grid = document.querySelector('.activity-grid');
+            const leftBtn = document.querySelector('.activity-scroll-btn.left');
+            const rightBtn = document.querySelector('.activity-scroll-btn.right');
+            if (!grid || !leftBtn || !rightBtn) return;
+            // 初期表示
+            updateScrollBtns(grid, leftBtn, rightBtn);
+            // スクロール時
+            grid.addEventListener('scroll', () => updateScrollBtns(grid, leftBtn, rightBtn));
+            // ボタン押下
+            leftBtn.addEventListener('click', () => {
+                grid.scrollBy({ left: -grid.clientWidth * 0.8, behavior: 'smooth' });
+            });
+            rightBtn.addEventListener('click', () => {
+                grid.scrollBy({ left: grid.clientWidth * 0.8, behavior: 'smooth' });
+            });
+            // リサイズ時
+            window.addEventListener('resize', () => updateScrollBtns(grid, leftBtn, rightBtn));
+        }
+        // SP時のみ有効化
+        function onResize() {
+            if (window.innerWidth <= 768) {
+                setupActivityScroll();
+            }
+        }
+        window.addEventListener('DOMContentLoaded', onResize);
+        window.addEventListener('resize', onResize);
+    })();
+    </script>
+</body>
+</html>
