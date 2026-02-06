@@ -227,9 +227,7 @@ display: flex;
         display: flex !important;
         margin-left: auto;
     }
-    .mobile-menu {
-        display: block;
-    }
+    /* JS制御で .mobile-menu が表示されるため、ここではdisplay:noneしない */
 }
 
 .menu-toggle {
@@ -252,26 +250,134 @@ display: flex;
     transition: all 0.3s;
 }
 
-/* モバイルメニューの基本スタイル */
+/* ==========================================================================
+   ★サイドバー（モバイルメニュー）基本設定
+   ========================================================================== */
 .mobile-menu {
     position: fixed;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
+    top: var(--header-height); /* ヘッダーの下から開始 */
+    right: 0;                  /* 右寄せ */
+    left: auto;                /* 左寄せ解除 */
+    width: 300px;              /* 幅を指定（スマホで見やすい幅） */
+    max-width: 80%;            /* 画面が狭い場合の保険 */
+    height: calc(100vh - var(--header-height)); /* ヘッダー分を引いた高さ */
+    
     background-color: #fff;
     z-index: 999;
     
-    /* 初期状態は非表示にする */
-    display: none; 
+    /* アニメーション設定: 右(100%)から左(0)へスライド */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, visibility 0.3s;
+    visibility: hidden; /* 閉じてるときは操作不能にする */
+    
+    /* 常にレイアウトは維持しておく */
+    display: flex; 
     flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px 0; /* 上下パディングに変更 */
+    
+    /* 浮いている感を出すための影 */
+    box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+    
+    /* 長い場合に備えてスクロール可能に */
+    overflow-y: auto;
 }
 
-/* JSで .open クラスがついた時だけ表示 */
+/* JSで .open クラスがついた時 */
 .mobile-menu.open {
-    display: flex;
+    transform: translateX(0); /* 画面内へスライドイン */
+    visibility: visible;
 }
+
+/* -----------------------------------------------------------------
+   ★追加: モバイルメニュー内部のデザイン（プルダウン風スタイル）
+----------------------------------------------------------------- */
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.mobile-nav-item {
+    border-bottom: 1px solid #f0f0f0; /* 薄い区切り線 */
+}
+
+/* 各メニューリンクボタン */
+.mobile-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mobile-nav-link:hover {
+    background-color: #fafafa;
+}
+
+/* 矢印アイコン */
+.dropdown-arrow {
+    font-size: 1.2rem;
+    color: #aaa;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* ドロップダウン部分（アコーディオン） */
+.mobile-dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f8fcf9; /* 少し背景色を変える */
+    
+    /* アニメーション用（通常は非表示） */
+    display: none; 
+    border-top: 1px solid #f0f0f0;
+}
+
+.mobile-dropdown-menu li a {
+    display: block;
+    padding: 12px 24px 12px 40px; /* インデントをつける */
+    font-size: 0.95rem;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px dashed #eee;
+}
+
+.mobile-dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+.mobile-dropdown-menu li a:hover {
+    color: var(--color-main);
+}
+
+/* .open クラスがついた時のスタイル（JS連動） */
+.mobile-nav-item.open .mobile-dropdown-menu {
+    display: block; /* 表示 */
+    animation: fadeIn 0.3s ease;
+}
+
+.mobile-nav-item.open .dropdown-arrow {
+    transform: rotate(90deg); /* 矢印を下に向ける */
+    color: var(--color-main);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* --- メインビジュアル --- */
 .main-visual {
@@ -281,59 +387,43 @@ display: flex;
 }
 
 .mv-container {
-    max-width: var(--site-width); /* 幅を拡張 */
+    max-width: var(--site-width);
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     gap: 20px;
-    height: 500px; /* 画面幅に合わせて高さを少し増やす */
-}
-
-/* 左側ナビゲーション */
-.mv-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 280px; /* 幅を少し拡張 */
-    flex-shrink: 0;
-}
-
-.mv-nav-item {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: var(--radius-lg);
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-    transition: all 0.3s ease;
-    height: 80px;
-    flex-grow: 1;
-}
-
-.mv-nav-item:hover {
-    background-color: #f0f0f0;
-}
-
-.mv-nav-item.active {
-    flex-grow: 2.5;
-    background-color: var(--color-main);
-    color: #fff;
-    border-color: var(--color-main);
-}
-
-.nav-icon {
-    font-size: 1.5rem;
+    /* 高さをviewportに合わせて柔軟に確保（PC〜SP共通の最低値） */
+    min-height: auto;
+    position: relative;
 }
 
 /* 右側スライダー */
 .mv-slider {
-    flex-grow: 1;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
     position: relative;
     border-radius: var(--radius-xl);
     overflow: hidden;
     background-color: #ddd;
+    /* スライダー自体の高さを親に合わせる（親の min-height を使う） */
+    height: 100%;
+    min-height: 260px; /* 万一の保険 */
+    
+    /* ★修正: clampはスマホ〜タブレット向けの設定として残す
+       （スマホで高くなりすぎないように）
+    */
+    height: clamp(240px, 40vh, 520px); 
+}
+
+/* -----------------------------------------------------------------
+   ★追加: デスクトップ版の高さ調整
+   画面幅が900px以上のときは、高さを大きく固定する
+----------------------------------------------------------------- */
+@media (min-width: 900px) {
+    .mv-slider {
+        height: 600px; /* PCでは十分に高くする */
+    }
 }
 
 .slide {
@@ -373,6 +463,46 @@ display: flex;
     font-size: 3.5rem; /* 大画面向けにサイズアップ */
     line-height: 1.1;
     font-weight: 700;
+}
+
+/* 縦向きバー（3つのドット） */
+.vertical-bar {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 5;
+    /* 修正: クリック操作を受け取れるように有効化 */
+    pointer-events: auto;
+}
+
+/* 個々のドット */
+.vertical-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.9);
+    background: transparent;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    transition: transform 0.18s ease, background 0.18s ease;
+    pointer-events: auto;
+    background-clip: padding-box;
+}
+
+/* アクティブなドット */
+.vertical-dot.active {
+    background: rgba(255,255,255,0.95);
+    transform: scale(1.18);
+}
+
+/* ホバーやフォーカス時の視覚反応（アクセシビリティ） */
+.vertical-dot:hover,
+.vertical-dot:focus {
+    transform: scale(1.12);
+    outline: none;
 }
 
 /* --- インフォメーションバー --- */
@@ -703,6 +833,10 @@ display: flex;
 .section-divider {
     width: 100%;
     margin: 0 auto 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 .section-divider h2 {
     font-size: 2rem;
@@ -922,6 +1056,56 @@ display: flex;
     flex-wrap: wrap;
 }
 
+/* サイトマップ全体のコンテナ */
+.sitemap-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 画面幅に合わせて自動整列 */
+    gap: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+}
+
+/* ジャンルごとのカラム */
+.sitemap-column h3 {
+    color: var(--color-text-light);
+    font-size: 14px;
+    font-weight: 700; /* 太字 */
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.sitemap-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-column ul li {
+    margin-bottom: 10px;
+}
+
+.sitemap-column ul li a {
+    color: rgba(255, 255, 255, 0.7); /* 少し薄くして細身に見せる */
+    font-size: 13px;
+    font-weight: 400; /* 細字 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sitemap-column ul li a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* スマホ対応：1列にならないよう、最低2列は維持、または1列にする調整 */
+@media (max-width: 480px) {
+    .sitemap-nav {
+        grid-template-columns: 1fr 1fr; /* スマホでは2列 */
+        gap: 30px 20px;
+    }
+}
+
 /* --- レスポンシブ対応 (SP: 768px以下) --- */
 @media (max-width: 768px) {
     :root {
@@ -944,8 +1128,9 @@ display: flex;
 
     .mv-container {
         flex-direction: column-reverse;
-        height: auto;
+        height: auto; /* 親は自動だが mv-slider が clamp によって高さを持つ */
         padding: 0 20px;
+        min-height: 300px; /* モバイルでは親の min-height を解除しておく */
     }
     
     .mv-nav {
@@ -964,7 +1149,8 @@ display: flex;
     }
     
     .mv-slider {
-        height: 300px;
+        /* モバイルでは若干コンパクトに（画面比に応じて） */
+        height: clamp(300px, 42vh, 360px);
     }
 
     .slide-content h2 {
@@ -1202,4 +1388,3 @@ display: flex;
         display: block !important;
     }
 }
-
