@@ -20,52 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollY = currentScrollY;
     });
 
-    /* --- 2. メインビジュアルのスライダー --- */
-    const slides = document.querySelectorAll('.slide');
-    const navItems = document.querySelectorAll('.mv-nav-item');
-    let currentIndex = 0;
-    const slideIntervalTime = 5000;
-    let slideInterval;
-
-    function showSlide(index) {
-        // すべて非アクティブ化
-        slides.forEach(slide => slide.classList.remove('active'));
-        navItems.forEach(item => item.classList.remove('active'));
-
-        // 対象をアクティブ化
-        slides[index].classList.add('active');
-        navItems[index].classList.add('active');
-        
-        currentIndex = index;
-    }
-
-    function nextSlide() {
-        let nextIndex = (currentIndex + 1) % slides.length;
-        showSlide(nextIndex);
-    }
-
-    // 自動再生開始
-    function startSlideShow() {
-        slideInterval = setInterval(nextSlide, slideIntervalTime);
-    }
-
-    // 自動再生停止（操作時用）
-    function resetSlideShow() {
-        clearInterval(slideInterval);
-        startSlideShow();
-    }
-
-    // ナビゲーションクリックイベント
-    navItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            showSlide(index);
-            resetSlideShow();
-        });
-    });
-
-    // 初期起動
-    startSlideShow();
-
     /* --- 3. ランダムコンテンツ表示 (チャレベをもっと知る) --- */
     const contentData = [
         { title: "これまでの活動記録", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=60" },
@@ -134,6 +88,29 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.toggle('open');
     });
 
+    /* --- 5-1. モバイルメニュー ドロップダウン機能 --- */
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const mobileNavItem = toggle.closest('.mobile-nav-item');
+            const isOpen = mobileNavItem.classList.contains('open');
+            
+            // 同じレベルの他のオープンアイテムを閉じる
+            document.querySelectorAll('.mobile-nav-item.open').forEach(item => {
+                if (item !== mobileNavItem) {
+                    item.classList.remove('open');
+                    item.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // 現在のアイテムを開く/閉じる
+            mobileNavItem.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+
     /* --- 6. スクロールでふわっと表示 --- */
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
@@ -151,4 +128,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => revealObserver.observe(el));
+
+    /* --- 7. スライド自動再生（ループ）、縦ドットのクリックでの切替、ホバーで一時停止、ドット・ナビの同期 --- */
+    // スライドとインジケーターを取得
+    const mvSlides = Array.from(document.querySelectorAll('.mv-container .slide'));
+    const dots = Array.from(document.querySelectorAll('.vertical-bar .vertical-dot'));
+    // optional: 左側の nav（ある場合のみ同期）
+    const navItems = Array.from(document.querySelectorAll('.mv-nav-item'));
+
+    if (mvSlides.length) {
+        // 初期インデックス（active があればそれを優先）
+        let index = mvSlides.findIndex(s => s.classList.contains('active'));
+        if (index === -1) index = 0;
+
+        let timer = null;
+        const INTERVAL = 4000;
+
+        const show = (i, userAction = false) => {
+            index = ((i % mvSlides.length) + mvSlides.length) % mvSlides.length;
+            mvSlides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+            if (dots.length) dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+            if (navItems.length) navItems.forEach((n, idx) => n.classList.toggle('active', idx === index));
+            if (userAction) restartTimer();
+        };
+
+        const next = () => show(index + 1);
+        const startTimer = () => { stopTimer(); timer = setInterval(next, INTERVAL); };
+        const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
+        const restartTimer = () => { stopTimer(); startTimer(); };
+
+        // ドット操作
+        if (dots.length) {
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', (e) => { e.preventDefault(); show(i, true); });
+                dot.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i, true); }
+                });
+            });
+        }
+
+        // ナビ（左側）があればクリックで同期
+        if (navItems.length) {
+            navItems.forEach((item, i) => {
+                item.addEventListener('click', (e) => { e.preventDefault(); show(i, true); });
+            });
+        }
+
+        // ホバーで一時停止（アクセシビリティのため）
+        const container = document.querySelector('.mv-container');
+        if (container) {
+            container.addEventListener('mouseenter', stopTimer);
+            container.addEventListener('mouseleave', startTimer);
+        }
+
+        // 初期表示と自動再生開始
+        show(index);
+        startTimer();
+    }
 });
