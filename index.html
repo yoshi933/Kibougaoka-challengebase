@@ -29,23 +29,39 @@
                         </div>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="#">施設案内</a>
+                        <a href="#">活動内容</a>
                         <div class="dropdown-menu">
-                            <a href="#">施設概要</a>
-                            <a href="#">利用方法</a>
-                            <a href="#">アクセス</a>
+                            <a href="#">部活動</a>
+                            <a href="#">カフェ</a>
+                            <a href="#">本屋さん</a>
+                            <a href="#">コンシェルジュ</a>
                         </div>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="#">チャレベについて</a>
+                        <a href="#">チャレベを知る</a>
                         <div class="dropdown-menu">
                             <a href="#">コンセプト</a>
+                            <a href="#">何をしている場所？</a>
+                            <a href="#">つながるまちづくり</a>
                             <a href="#">活動記録</a>
                             <a href="#">運営体制</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a href="#">お問い合わせ</a>
+                    <li class="nav-item has-dropdown">
+                        <a href="#">施設案内</a>
+                        <div class="dropdown-menu">
+                            <a href="#">レンタルスペース</a>
+                            <a href="#">アクセス</a>
+                            <a href="#">最新情報</a>
+                            <a href="#">ギャラリー</a>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="#">サポート</a>
+                        <div class="dropdown-menu">
+                            <a href="#">寄付について</a>
+                            <a href="#">お問い合わせ</a>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -68,11 +84,64 @@
             </div>
         </div>
         <nav id="mobile-menu" class="mobile-menu">
-            <ul>
-                <li><a href="#">ホーム</a></li>
-                <li><a href="#">イベント情報</a></li>
-                <li><a href="#">施設案内</a></li>
-                <li><a href="#">お問い合わせ</a></li>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">ホーム</a>
+                </li>
+                <li class="mobile-nav-item has-dropdown">
+                    <button class="mobile-nav-link dropdown-toggle" aria-expanded="false">
+                        イベント情報
+                        <span class="dropdown-arrow">›</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="#">今月のイベント</a></li>
+                        <li><a href="#">過去のイベント</a></li>
+                        <li><a href="#">イベントカレンダー</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item has-dropdown">
+                    <button class="mobile-nav-link dropdown-toggle" aria-expanded="false">
+                        活動内容
+                        <span class="dropdown-arrow">›</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="#">部活動</a></li>
+                        <li><a href="#">カフェ</a></li>
+                        <li><a href="#">本屋さん</a></li>
+                        <li><a href="#">コンシェルジュ</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item has-dropdown">
+                    <button class="mobile-nav-link dropdown-toggle" aria-expanded="false">
+                        チャレベを知る
+                        <span class="dropdown-arrow">›</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="#">コンセプト</a></li>
+                        <li><a href="#">何をしている場所？</a></li>
+                        <li><a href="#">つながるまちづくり</a></li>
+                        <li><a href="#">活動記録</a></li>
+                        <li><a href="#">運営体制</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item has-dropdown">
+                    <button class="mobile-nav-link dropdown-toggle" aria-expanded="false">
+                        施設案内
+                        <span class="dropdown-arrow">›</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="#">レンタルスペース</a></li>
+                        <li><a href="#">アクセス</a></li>
+                        <li><a href="#">最新情報</a></li>
+                        <li><a href="#">ギャラリー</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">お問い合わせ</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">寄付について</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -80,21 +149,6 @@
     <main>
         <section class="main-visual">
             <div class="mv-container">
-                <div class="mv-nav">
-                    <button class="mv-nav-item active" data-index="0">
-                        <div class="nav-icon">📅</div>
-                        <div class="nav-text">○月のイベント情報</div>
-                    </button>
-                    <button class="mv-nav-item" data-index="1">
-                        <div class="nav-icon">📚</div>
-                        <div class="nav-text">新本入荷！</div>
-                    </button>
-                    <button class="mv-nav-item" data-index="2">
-                        <div class="nav-icon">☕</div>
-                        <div class="nav-text">新メニュー発売！</div>
-                    </button>
-                </div>
-
                 <div class="mv-slider">
                     <div class="slide active">
                         <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop" alt="イベント情報">
@@ -114,6 +168,13 @@
                             <h2>NEW<br>○○ラテ</h2>
                         </div>
                     </div>
+                </div>
+
+                <!-- 追加: 右側に縦向きのバー（3つのドット） -->
+                <div class="vertical-bar">
+                    <button class="vertical-dot active" aria-label="スライダーインジケーター 1"></button>
+                    <button class="vertical-dot" aria-label="スライダーインジケーター 2"></button>
+                    <button class="vertical-dot" aria-label="スライダーインジケーター 3"></button>
                 </div>
             </div>
         </section>
@@ -261,8 +322,8 @@
         </section>
 
         <section class="content-nav reveal">
+            <h1>|</h1>
             <div class="section-divider">
-                <h1>｜</h1>
                 <h1>チャレベをもっと知る</h1>
             </div>
             <div class="content-cards-container" id="random-content-area">
@@ -298,15 +359,51 @@
         </div>
 
         <div class="footer-links">
-            <div class="sitemap">
-                <h4>サイトマップ</h4>
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="#">チャレベについて</a></li>
-                    <li><a href="#">イベント</a></li>
-                    <li><a href="#">アクセス</a></li>
-                </ul>
-            </div>
+            <nav class="sitemap-nav">
+                <div class="sitemap-column">
+                    <h3><a href="#">イベント情報</a></h3>
+                    <ul>
+                        <li><a href="#">今月のイベント</a></li>
+                        <li><a href="#">過去のイベント</a></li>
+                        <li><a href="#">イベントカレンダー</a></li>
+                    </ul>
+                </div>
+                <div class="sitemap-column">
+                    <h3><a href="#">活動内容</a></h3>
+                    <ul>
+                        <li><a href="#">部活動</a></li>
+                        <li><a href="#">カフェ</a></li>
+                        <li><a href="#">本屋さん</a></li>
+                        <li><a href="#">コンシェルジュ</a></li>
+                    </ul>
+                </div>
+                <div class="sitemap-column">
+                    <h3><a href="#">チャレベを知る</a></h3>
+                    <ul>
+                        <li><a href="#">コンセプト</a></li>
+                        <li><a href="#">何をしている場所？</a></li>
+                        <li><a href="#">つながるまちづくり</a></li>
+                        <li><a href="#">活動記録</a></li>
+                        <li><a href="#">運営体制</a></li>
+                    </ul>
+                </div>
+                <div class="sitemap-column">
+                    <h3><a href="#">施設案内</a></h3>
+                    <ul>
+                        <li><a href="#">レンタルスペース</a></li>
+                        <li><a href="#">アクセス</a></li>
+                        <li><a href="#">最新情報</a></li>
+                        <li><a href="#">ギャラリー</a></li>
+                    </ul>
+                </div>
+                <div class="sitemap-column">
+                    <h3><a href="#">サポート</a></h3>
+                    <ul>
+                        <li><a href="#">寄付について</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
             <div class="copyright">
                 &copy; 2026 希望が丘チャレンジベース
             </div>
@@ -354,5 +451,4 @@
     })();
     </script>
 </body>
-
 </html>
