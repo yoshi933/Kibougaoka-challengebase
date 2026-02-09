@@ -12,6 +12,11 @@ img, iframe {
     max-width: 100%;
 }
 
+h3 span {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 /* --- 変数定義 & リセット --- */
 :root {
     --color-main: #1A4D2E;
@@ -677,7 +682,7 @@ display: flex;
 .card {
     background: #fff;
     border-radius: var(--radius-xl);
-    padding: 30px;
+    padding: 20px;
     box-shadow: var(--shadow-card);
 }
 
@@ -1214,8 +1219,24 @@ display: flex;
         transform: none; /* はみ出し等の調整があればリセット */
     }
 
+    /* --- 修正箇所: ダッシュボード（スマホ版） --- */
     .dashboard-container {
-        grid-template-columns: 1fr;
+        /* GridレイアウトをやめてBlockにする（Gridのパディング干渉を避ける） */
+        display: block; 
+        /* padding: 0 20px; はそのまま効きます */
+    }
+
+    .dashboard-container .card {
+        /* コンテナのpaddingの内側いっぱいに広げる */
+        width: 100%; 
+        max-width: 540px;
+        /* 左右中央寄せ。下マージンでカード間の隙間を作る */
+        margin: 0 auto 40px auto; 
+    }
+    
+    /* 最後のカードの下マージンを消す */
+    .dashboard-container .card:last-child {
+        margin-bottom: 0;
     }
 
     .content-cards-container {
