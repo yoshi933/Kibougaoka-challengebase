@@ -12,7 +12,7 @@ img, iframe {
     max-width: 100%;
 }
 
-h3 span {
+span {
     display: inline-block;
     white-space: nowrap;
 }
