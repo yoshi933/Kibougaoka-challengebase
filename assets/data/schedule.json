@@ -1,0 +1,504 @@
+{
+    "meta": {
+        "name": "希望が丘チャレンジベース スケジュールデータ",
+        "timezone": "Asia/Tokyo",
+        "updatedAt": "2026-02-15"
+    },
+    "months": {
+        "2026-02": {
+            "label": "2026年2月",
+            "openingStatus": [
+                {
+                    "date": "2026-02-01",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-02-02",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-03",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-04",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-05",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-06",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-07",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-08",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-02-09",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-10",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-11",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-12",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-13",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-14",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-15",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-02-16",
+                    "day": "月",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "休館日（第3月曜）"
+                },
+                {
+                    "date": "2026-02-17",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-18",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-19",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-20",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-21",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-22",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-02-23",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-24",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-25",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-26",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-27",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-02-28",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                }
+            ],
+            "events": [
+                {
+                    "id": "evt-20260216-consult-item01",
+                    "date": "2026-02-16",
+                    "start": "19:00",
+                    "end": "20:30",
+                    "title": "あ、構文チェック忘れてた",
+                    "category": "相談",
+                    "summary": "",
+                    "detailPath": "pages/events/detail-sample.html?event=evt-20260201-event-item01"
+                }
+            ]
+        },
+        "2026-03": {
+            "label": "2026年3月",
+            "openingStatus": [
+                {
+                    "date": "2026-03-01",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-03-02",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-03",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-04",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-05",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-06",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-07",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-08",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-03-09",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-10",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-11",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-12",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-13",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-14",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-15",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-03-16",
+                    "day": "月",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "休館日（第3月曜）"
+                },
+                {
+                    "date": "2026-03-17",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-18",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-19",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-20",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-21",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-22",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-03-23",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-24",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-25",
+                    "day": "水",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-26",
+                    "day": "木",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-27",
+                    "day": "金",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-28",
+                    "day": "土",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-19:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-29",
+                    "day": "日",
+                    "isOpen": false,
+                    "status": "休館",
+                    "hours": null,
+                    "note": "定休日"
+                },
+                {
+                    "date": "2026-03-30",
+                    "day": "月",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                },
+                {
+                    "date": "2026-03-31",
+                    "day": "火",
+                    "isOpen": true,
+                    "status": "営業",
+                    "hours": "10:00-21:00",
+                    "note": ""
+                }
+            ],
+            "events": []
+        }
+    }
+}

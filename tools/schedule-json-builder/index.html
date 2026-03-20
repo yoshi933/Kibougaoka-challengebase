@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スケジュールJSON作成ツール</title>
+    <meta name="description" content="schedule.json 形式のコードを直感的に生成する独立ツール">
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="app-shell">
+            <p class="eyebrow">Standalone Tool</p>
+            <h1>スケジュールJSON作成ツール</h1>
+            <p class="lead">このページはメインサイトと分離された作成ツールです。入力した内容から <code>schedule.json</code> 形式のJSONを生成できます。</p>
+        </div>
+    </header>
+
+    <main class="app-main app-shell">
+        <section class="panel">
+            <h2>1. 基本情報</h2>
+            <div class="form-grid form-grid--meta">
+                <label>
+                    <span>データ名 <small>(meta.name)</small></span>
+                    <input type="text" id="meta-name" value="希望が丘チャレンジベース スケジュールデータ">
+                </label>
+                <label>
+                    <span>タイムゾーン <small>(meta.timezone)</small></span>
+                    <input type="text" id="meta-timezone" value="Asia/Tokyo">
+                </label>
+                <label>
+                    <span>更新日 <small>(meta.updatedAt)</small></span>
+                    <input type="date" id="meta-updated-at">
+                </label>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>2. 対象月を2つ選択</h2>
+            <p class="hint">ここで選んだ2か月分の <code>months</code> データを作成します。</p>
+            <div class="form-grid form-grid--months">
+                <label>
+                    <span>月A</span>
+                    <input type="month" id="month-a">
+                </label>
+                <label>
+                    <span>月B</span>
+                    <input type="month" id="month-b">
+                </label>
+            </div>
+            <div class="row-actions">
+                <button type="button" class="btn btn-primary" id="build-months">2か月分の入力フォームを作成</button>
+                <p id="month-error" class="error" role="alert" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="panel" id="builder-panel" hidden>
+            <h2>3. 月ごとの詳細入力</h2>
+            <div id="month-tabs" class="month-tabs" role="tablist" aria-label="月タブ"></div>
+            <div id="month-editor" class="month-editor"></div>
+        </section>
+
+        <section class="panel">
+            <h2>4. JSON生成</h2>
+            <div class="row-actions">
+                <button type="button" class="btn btn-primary" id="generate-json">JSONコードを生成</button>
+                <button type="button" class="btn" id="copy-json">コピー</button>
+                <button type="button" class="btn" id="download-json">.jsonでダウンロード</button>
+                <p id="copy-status" class="status" aria-live="polite"></p>
+            </div>
+            <label class="code-label" for="json-output">生成結果</label>
+            <textarea id="json-output" class="json-output" spellcheck="false" placeholder="ここにJSONコードが表示されます。"></textarea>
+        </section>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
