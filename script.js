@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const contentData = [
-        { title: '施設案内', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=60' },
-        { title: '地域のイベント', img: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=500&q=60' },
-        { title: 'イベント情報', img: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=60' },
-        { title: 'レンタルスペース', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=60' },
-        { title: 'ギャラリー', img: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=500&q=60' }
+        { title: '施設案内', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=60', url: 'pages/facility/index.html' },
+        { title: '地域のイベント', img: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=500&q=60', url: 'pages/events/local.html' },
+        { title: 'イベント情報', img: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=60', url: 'pages/events/index.html' },
+        { title: 'レンタルスペース', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=60', url: 'pages/facility/rental.html' },
+        { title: 'ギャラリー', img: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=500&q=60', url: 'pages/facility/gallery.html' }
     ];
 
     const randomArea = document.getElementById('random-content-area');
@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedContents = shuffleArray([...contentData]).slice(0, 3);
         selectedContents.forEach((content) => {
             const cardHTML = `
-                <div class="nav-card">
+                <a href="${content.url}" class="nav-card">
                     <img src="${content.img}" alt="${content.title}" class="nav-card-img">
                     <div class="nav-card-title">${content.title}</div>
-                </div>
+                </a>
             `;
             randomArea.insertAdjacentHTML('beforeend', cardHTML);
         });
@@ -118,6 +118,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach((el) => revealObserver.observe(el));
     }
+
+    function initPageOutline() {
+        const pageMain = document.querySelector('.page-main');
+        if (!pageMain) return;
+
+        const hero = pageMain.querySelector('.page-hero');
+        if (!hero) return;
+        if (pageMain.querySelector('.page-outline')) return;
+
+        const sections = Array.from(pageMain.querySelectorAll('.page-section'));
+        const items = sections.map((section, index) => {
+            const titleEl = section.querySelector('.section-header h2') || section.querySelector('h2');
+            if (!titleEl) return null;
+            const label = titleEl.textContent.trim();
+            if (!label) return null;
+            const id = section.id || `section-${index + 1}`;
+            section.id = id;
+            return { id, label };
+        }).filter(Boolean);
+
+        if (items.length < 2) return;
+
+        const nav = document.createElement('nav');
+        nav.className = 'page-outline';
+        nav.setAttribute('aria-label', 'ページ内ナビ');
+        nav.innerHTML = `
+            <div class="page-shell">
+                <div class="page-outline-inner">
+                    ${items.map((item) => `<a href="#${item.id}">${item.label}</a>`).join('')}
+                </div>
+            </div>
+        `;
+        hero.insertAdjacentElement('afterend', nav);
+    }
+
+    initPageOutline();
 
     const mvSlides = Array.from(document.querySelectorAll('.mv-container .slide'));
     const dots = Array.from(document.querySelectorAll('.vertical-bar .vertical-dot'));
@@ -258,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter((event) => event.date >= todayKey)
             .slice(0, 3)
             .map((event) => ({
+                key: event.id || `${event.date}|${event.start}|${event.title || ''}`,
                 type: 'event',
                 title: event.title || 'イベント',
                 meta: `${formatDateJa(event.date)} ${event.start}-${event.end}`,
@@ -271,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter((item) => item && item.title)
             .sort((a, b) => String(b.publishedAt || '').localeCompare(String(a.publishedAt || '')))
             .map((item) => ({
+                key: `${item.publishedAt || ''}|${item.title}|${item.path || ''}`,
                 type: 'notice',
                 title: item.title,
                 meta: item.publishedAt ? `${item.publishedAt} 公開` : 'お知らせ',
@@ -278,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }));
 
         const fallbackNotice = {
+            key: 'fallback-notice-latest',
             type: 'notice',
             title: '最新のお知らせを確認',
             meta: '最新情報',
@@ -304,13 +343,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!notifyButtons.length) return;
 
         const items = buildHeaderNotifications(scheduleData, todayKey);
-        const notifySignature = items.map((item) => `${item.type}|${item.title}|${item.href}`).join('||');
+        const notifySignature = items.map((item) => item.key || `${item.type}|${item.title}`).join('||');
         const seenSignature = localStorage.getItem('seen_notify_signature') || '';
         const isUnread = notifySignature && notifySignature !== seenSignature;
         const panelHtml = `
             <div class="notify-panel-head">
                 <p>通知</p>
-                <span>最大3件</span>
             </div>
             <ul class="notify-list">
                 ${items.map((item) => `
@@ -947,8 +985,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initScheduleFromJson();
 });
-
-
 
 
 
